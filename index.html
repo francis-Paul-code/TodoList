@@ -29,10 +29,10 @@
                             <label for="todoInput" style="padding:0 15px;">Add New Task</label>
                             <div style="display: flex;">
                                 <div class="col-8">
-                                    <input type="text" class="form-control sm" id="todoInput" style="border:none; border-radius:0; border-bottom:1px solid grey !important;" required>
+                                    <input type="text" class="form-control sm" id="todoInput" style="border:none; border-radius:0; border-bottom:1px solid grey !important;">
                                 </div>
                                 <div class="col-3" style="padding:0 !important;">
-                                    <button type="button" class="btn btn-primary btn-sm" style="width:6rem; font-size:1rem; font-weight:5000;" onclick="addTask()">Add</button>
+                                    <button type="button" id="addBtn" class="btn btn-primary btn-sm" style="width:6rem; font-size:1rem; font-weight:5000;" onclick="addTask()">Add</button>
                                 </div>
                             </div>
 
@@ -45,12 +45,13 @@
             <div class="col-12 p-3 " style=" height:70%; ">
                 <ul class="list-group " id="taskList" style="border:none!important; position: relative; height:80%; overflow-y: scroll;">
 
-                    <li class="list-group-item " style="border:none; border-bottom:1px solid rgba(0, 0, 0, 0.125)!important;">
+                    <li class="list-group-item " id="ListItem" style="border:none; border-bottom:1px solid rgba(0, 0, 0, 0.125)!important;">
                         <div class="custom-control custom-radio">
-                            <input type="radio" id="task0" name="taskSelect" class="custom-control-input" value="">
+                            <input type="checkbox" id="task0" name="taskSelect" class="custom-control-input" value="option0" toggle>
                             <label class="custom-control-label" for="task0">Shopping</label>
                         </div>
                     </li>
+                    
                 </ul>
                 <button type="button" class="btn btn-danger btn-sm"
                     style=" font-size:1em; position:relative; left:10px; top:10%;">Delete Task</button>
@@ -58,10 +59,10 @@
         </div>
 
     </div>
-    <script src="./js/jquery-3.5.1.min.js"></script>
-    <script src="./js/popper.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
-    <script src="./index.js"></script>
+    <script defer src="./js/jquery-3.5.1.min.js"></script>
+    <script defer src="./js/popper.min.js"></script>
+    <script defer src="./js/bootstrap.min.js"></script>
+    <script defer src="./index.js"></script>
 
 </body>
 
