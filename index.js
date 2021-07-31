@@ -41,60 +41,64 @@ var input = document.getElementById("todoInput");
    }
 }
 */
-
+var deleteBtn = document.getElementById('deleteBtn');
 var input = document.getElementById('todoInput');
 var addNewTask = document.getElementById('addBtn');
 var taskList = document.getElementById('taskList');
 var addNumber = 0;
 ++addNumber;
-var storedTask = localStorage.getItem("task"+addNumber+"");
+var storedTask = localStorage.getItem("task "+addNumber+"");
 
-const addTask = () => {
+// const addTask = () => {
 
- if (input && input.value){
+//  if (input && input.value){
     
-//Create New HTML Elements for the New Task
-    var newListItem = document.createElement('li');
-    var newInputField= document.createElement('input');
-    var newLabel = document.createElement('label');
-    var newDiv = document.createElement('div');
-//Rearrange new Elements 
-    newListItem.appendChild(newDiv);
-    newDiv.appendChild(newInputField);
-    newDiv.appendChild(newLabel);
-    taskList.appendChild(newListItem);
-//Customize new Elements to follow bootstrap classes
-    newLabel.innerHTML=""+ input.value +""
-    newListItem.setAttribute("class", "list-group-item ");
-    newListItem.setAttribute("style", "border:none; border-bottom:1px solid rgba(0, 0, 0, 0.125)!important;");
-    newDiv.setAttribute("class", "custom-control custom-radio");
-    newInputField.setAttribute("type", "checkbox");
-    newInputField.setAttribute("class", "custom-control-input");
-    newInputField.setAttribute("name", "taskSelect")
-    newInputField.setAttribute("value", "option"+addNumber+"")
-    newInputField.id ="task"+addNumber +"";
-    newLabel.setAttribute("for", "task"+addNumber +"" )
-    newLabel.setAttribute("class", "custom-control-label")
+// //Create New HTML Elements for the New Task
+//     var newListItem = document.createElement('li');
+//     var newInputField= document.createElement('input');
+//     var newLabel = document.createElement('label');
+//     var newDiv = document.createElement('div');
+// //Rearrange new Elements 
+//     newListItem.appendChild(newDiv);
+//     newDiv.appendChild(newInputField);
+//     newDiv.appendChild(newLabel);
+//     taskList.appendChild(newListItem);
+// //Customize new Elements to follow bootstrap classes
+//     newLabel.innerHTML=""+ input.value +""
+//     newListItem.setAttribute("class", "list-group-item ");
+//     newListItem.setAttribute("style", "border:none; border-bottom:1px solid rgba(0, 0, 0, 0.125)!important;");
+//     newDiv.setAttribute("class", "custom-control custom-radio");
+//     newInputField.setAttribute("type", "checkbox");
+//     newInputField.setAttribute("class", "custom-control-input");
+//     newInputField.setAttribute("name", "taskSelect")
+//     newInputField.setAttribute("value", "option "+addNumber+"")
+//     newInputField.id ="task "+addNumber +"";
+//     newLabel.setAttribute("for", "task "+addNumber +"" )
+//     newLabel.setAttribute("class", "custom-control-label")
 
    
-//Save to Localstorage
-    const saveToLocalStorage = () => {
-        localStorage.setItem("task"+addNumber+"", ""+newLabel.textContent+"" )
-    }
-    saveToLocalStorage();
-//Clear Input Field
-    input.value=null;
+// //Save to Localstorage
+//     const saveToLocalStorage = () => {
+//         localStorage.setItem("task "+addNumber+"", ""+newLabel.textContent+"" )
+//     }
+//     saveToLocalStorage();
+// //Clear Input Field
+//     input.value=null;
 
 
-    console.log("success");
-}
-else{
-    document.getElementById('todoInput').placeholder="*required field*";
+//     console.log("success");
+// }
+// else{
+//     document.getElementById('todoInput').placeholder="*required field*";
 
-    console.log('Error')
-}
+//     console.log('Error')
+// }
 
-};
+// };
+
+addNewTask.addEventListener("click", addTask);
+
+ //Retrieve STored Task
 
 if(storedTask){
         
@@ -116,8 +120,40 @@ if(storedTask){
     newInputField.setAttribute("type", "checkbox");
     newInputField.setAttribute("class", "custom-control-input");
     newInputField.setAttribute("name", "taskSelect")
-    newInputField.setAttribute("value", "option"+addNumber+"")
-    newInputField.id ="task"+addNumber +"";
-    newLabel.setAttribute("for", "task"+addNumber +"" )
+    newInputField.setAttribute("value", "option "+addNumber+"")
+    newInputField.id ="task "+addNumber +"";
+    newLabel.setAttribute("for", "task "+addNumber +"" )
     newLabel.setAttribute("class", "custom-control-label")
 }
+
+
+
+//  Deleting a Task
+
+var selector = document.getElementById("task ");
+
+const removeTask = () =>{
+  if(selector.checked == true){
+    console.log("success")
+  }else{
+      console.log("no")
+  }
+};
+
+deleteBtn.addEventListener( "click" , removeTask );
+
+
+
+const addTask = () =>{
+
+    const todos = [
+
+    ];
+
+   if(input && input.value){
+      todos.push[input.value]
+   }
+   else{
+    console.log("error")
+   }
+};
