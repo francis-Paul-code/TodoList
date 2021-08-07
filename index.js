@@ -45,115 +45,164 @@ var deleteBtn = document.getElementById('deleteBtn');
 var input = document.getElementById('todoInput');
 var addNewTask = document.getElementById('addBtn');
 var taskList = document.getElementById('taskList');
-var addNumber = 0;
-++addNumber;
-var storedTask = localStorage.getItem("task "+addNumber+"");
+//const saved = JSON.parse(localStorage.getItem('todo')) || []
 
-// const addTask = () => {
 
-//  if (input && input.value){
+/*
+const addTask = () => {
+
+ if (input?.value){
     
-// //Create New HTML Elements for the New Task
-//     var newListItem = document.createElement('li');
-//     var newInputField= document.createElement('input');
-//     var newLabel = document.createElement('label');
-//     var newDiv = document.createElement('div');
-// //Rearrange new Elements 
-//     newListItem.appendChild(newDiv);
-//     newDiv.appendChild(newInputField);
-//     newDiv.appendChild(newLabel);
-//     taskList.appendChild(newListItem);
-// //Customize new Elements to follow bootstrap classes
-//     newLabel.innerHTML=""+ input.value +""
-//     newListItem.setAttribute("class", "list-group-item ");
-//     newListItem.setAttribute("style", "border:none; border-bottom:1px solid rgba(0, 0, 0, 0.125)!important;");
-//     newDiv.setAttribute("class", "custom-control custom-radio");
-//     newInputField.setAttribute("type", "checkbox");
-//     newInputField.setAttribute("class", "custom-control-input");
-//     newInputField.setAttribute("name", "taskSelect")
-//     newInputField.setAttribute("value", "option "+addNumber+"")
-//     newInputField.id ="task "+addNumber +"";
-//     newLabel.setAttribute("for", "task "+addNumber +"" )
-//     newLabel.setAttribute("class", "custom-control-label")
-
-   
-// //Save to Localstorage
-//     const saveToLocalStorage = () => {
-//         localStorage.setItem("task "+addNumber+"", ""+newLabel.textContent+"" )
-//     }
-//     saveToLocalStorage();
-// //Clear Input Field
-//     input.value=null;
-
-
-//     console.log("success");
-// }
-// else{
-//     document.getElementById('todoInput').placeholder="*required field*";
-
-//     console.log('Error')
-// }
-
-// };
-
-addNewTask.addEventListener("click", addTask);
-
- //Retrieve STored Task
-
-if(storedTask){
-        
-    //Create New HTML Elements for the New Task
+//Create New HTML Elements for the New Task
     var newListItem = document.createElement('li');
     var newInputField= document.createElement('input');
     var newLabel = document.createElement('label');
     var newDiv = document.createElement('div');
-    //Rearrange new Elements 
+//Rearrange new Elements 
     newListItem.appendChild(newDiv);
     newDiv.appendChild(newInputField);
     newDiv.appendChild(newLabel);
     taskList.appendChild(newListItem);
-    //Customize new Elements to follow bootstrap classes
-    newLabel.innerHTML=""+ storedTask +""
+//Customize new Elements to follow bootstrap classes
+    newLabel.innerHTML=""+ input.value +""
     newListItem.setAttribute("class", "list-group-item ");
     newListItem.setAttribute("style", "border:none; border-bottom:1px solid rgba(0, 0, 0, 0.125)!important;");
     newDiv.setAttribute("class", "custom-control custom-radio");
     newInputField.setAttribute("type", "checkbox");
     newInputField.setAttribute("class", "custom-control-input");
     newInputField.setAttribute("name", "taskSelect")
-    newInputField.setAttribute("value", "option "+addNumber+"")
-    newInputField.id ="task "+addNumber +"";
-    newLabel.setAttribute("for", "task "+addNumber +"" )
+    newInputField.setAttribute("value", `option `)
+    newInputField.id =`${input?.value}`;
+    newLabel.setAttribute("for", `${input?.value}`)
     newLabel.setAttribute("class", "custom-control-label")
+    saved.push(input?.value)
+   
+//Save to Localstorage
+    const saveToLocalStorage = (index) => {
+        localStorage.setItem('todos',JSON.stringify(saved))
+    }
+    saveToLocalStorage();
+//Clear Input Field
+    input.value=null;
+
+
+    console.log("success");
+}
+else{
+    document.getElementById('todoInput').placeholder="*required field*";
+
+    console.log('Error')
 }
 
+};
+
+addNewTask.addEventListener("click", addTask);
+
+ //Retrieve STored Task
+ 
+const loadTodo = () =>{
+     
+    if(saved){
+            
+        //Create New HTML Elements for the New Task
+        var newListItem = document.createElement('li');
+        var newInputField= document.createElement('input');
+        var newLabel = document.createElement('label');
+        var newDiv = document.createElement('div');
+        //Rearrange new Elements 
+        newListItem.appendChild(newDiv);
+        newDiv.appendChild(newInputField);
+        newDiv.appendChild(newLabel);
+        taskList.appendChild(newListItem);
+        //Customize new Elements to follow bootstrap classes
+
+        newLabel.innerHTML = saved?.map((item, index)=>{
+            return `
+              ${item}
+            `
+        }).join('');
+        newListItem.setAttribute("class", "list-group-item ");
+        newListItem.setAttribute("style", "border:none; border-bottom:1px solid rgba(0, 0, 0, 0.125)!important;");
+        newDiv.setAttribute("class", "custom-control custom-radio");
+        newInputField.setAttribute("type", "checkbox");
+        newInputField.setAttribute("class", "custom-control-input");
+        newInputField.setAttribute("name", "taskSelect")
+        newInputField.setAttribute("value", "option ")
+        newInputField.id =`${input.value}`;
+        newLabel.setAttribute("for", `${input?.value}` )
+        newLabel.setAttribute("class", "custom-control-label")
+    }
+
+
+
+    
+}
+ 
+loadTodo();
 
 
 //  Deleting a Task
 
-var selector = document.getElementById("task ");
+// var selector = document.getElementById("task ");
 
-const removeTask = () =>{
-  if(selector.checked == true){
-    console.log("success")
-  }else{
-      console.log("no")
-  }
-};
+// const removeTask = () =>{
+//   if(selector.checked == true){
+//     console.log("success")
+//   }else{
+//       console.log("no")
+//   }
+// };
 
-deleteBtn.addEventListener( "click" , removeTask );
+// deleteBtn.addEventListener( "click" , removeTask );
+
+*/
 
 
 
-const addTask = () =>{
+const selected = []
+const saved = JSON.parse(localStorage.getItem('todos')) || []
+const loadTodos = ()=>{
+    if(saved)
+{
+    taskList.innerHTML= saved?.map((item, index)=>{
+        return `<li class="list-group-item " id="ListItem" style="border:none; border-bottom:1px solid rgba(0, 0, 0, 0.125)!important;">
+        <div class="custom-control custom-radio">
+            <input type="checkbox" onclick="selectedTask(${index})" id="task${index}" name="taskSelect" class="custom-control-input" value="option0" toggle>
+            <label class="custom-control-label" for="task${index}">${item}</label>
+        </div>
+        </li>
+        `
+            }).join('')
+}  else{
+}
+}
+const addTask = () => {
+    if(input?.value){
+    //     todos.push(`<li class="list-group-item " id="ListItem" style="border:none; border-bottom:1px solid rgba(0, 0, 0, 0.125)!important;">
+    //     <div class="custom-control custom-radio">
+    //         <input type="checkbox" id="${input?.value}" name="taskSelect" class="custom-control-input" value="option0" toggle>
+    //         <label class="custom-control-label" for="${input?.value}">${input?.value}</label>
+    //     </div>
+    // </li>
+    // `)
+    saved.push(input?.value)
+    console.log(saved)
+    localStorage.setItem('todos',JSON.stringify(saved))
+    // taskList.innerHTML=todos2.join('')
+    loadTodos()
+    }else{
 
-    const todos = [
+        document.getElementById('todoInput').placeholder="*required field*";
 
-    ];
+        console.log('Error')
+    }
+}
+const selectedTask = (val)=>{
+    const y = saved.filter((item)=>item!==saved[val])
+    console.log('yyy',y)
+    localStorage.setItem('todos',JSON.stringify(y))
+    loadTodos()
+}
+loadTodos();
+addNewTask.addEventListener("click", addTask);
 
-   if(input && input.value){
-      todos.push[input.value]
-   }
-   else{
-    console.log("error")
-   }
-};
