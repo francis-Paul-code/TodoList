@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="./css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./index.css" type="text/css">
+    <title>Todo List</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="row" style="height:15vh; background: rgb(68,83,176); text-align: center!important;">
+            <div class="col-12" style>
+                <h1 class="head">Todo List</h1>
+            </div>
+
+        </div>
+        <div class="row" style="height:70vh; ">
+            <div class="col-12 p-3" style="position: relative; height: 25%; ">
+                <span style=" position:relative; width: 70%; height:100%; top:5%;">
+                    <form>
+
+                        <div class="form-group ">
+                            <label for="todoInput" style="padding:0 15px;">Add New Task</label>
+                            <div style="display: flex;">
+                                <div class="col-8">
+                                    <input type="text" class="form-control sm" id="todoInput" style="border:none; border-radius:0; border-bottom:1px solid grey !important;">
+                                </div>
+                                <div class="col-3" style="padding:0 !important;">
+                                    <button type="button" id="addBtn" class="btn btn-primary btn-sm" style="width:6rem; font-size:1rem; font-weight:5000;" >Add</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </form>
+                </span>
+            </div>
+            <div class="col-12 p-3 " style=" height:70%; ">
+                <ul class="list-group " id="taskList" style="border:none!important; position: relative; height:80%; overflow-y:scroll;">
+                      
+                    <li class="list-group-item " id="ListItem" style="border:none; border-bottom:1px solid rgba(0, 0, 0, 0.125)!important;">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" id="task 0" name="taskSelect" class="custom-control-input" value="option 0" >
+                            <label class="custom-control-label" for="task 0">
+                                Shopping
+                            </label>
+                        </div>
+                    </li>
+                    
+                </ul>
+                <button type="button" class="btn btn-danger btn-sm" id="deleteBtn"
+                    style=" font-size:1em; position:relative; left:10px; top:10%;">Delete Task</button>
+            </div>
+        </div>
+
+    </div>
+    <script defer src="./js/jquery-3.5.1.min.js"></script>
+    <script defer src="./js/popper.min.js"></script>
+    <script defer src="./js/bootstrap.min.js"></script>
+    <script defer type="module" src="./index.js"></script>
+
+</body>
+
+</html>
