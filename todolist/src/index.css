@@ -33,3 +33,24 @@ input{
     border-bottom:1px solid rgb(182, 178, 178);
     width:60%;
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgb(224, 217, 250);
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #2a3ec0;
+    border-radius:10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #4453B0;
+  }

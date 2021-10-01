@@ -10,9 +10,13 @@
   "author": "francis",
   "license": "ISC",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
     "browserify": "^17.0.0",
     "express": "^4.17.1",
-    "pg": "^8.7.1"
+    "pg": "^8.7.1",
+    "sequelize": "^6.6.5",
+    "webpack": "^5.53.0",
+    "webpack-cli": "^4.8.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"

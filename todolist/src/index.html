@@ -43,16 +43,20 @@
                 </span>
             </div>
             <div class="col-12 p-3 " style=" height:70%; ">
-                <ul class="list-group " id="taskList" style="border:none!important; position: relative; height:80%; overflow-y:scroll;">
+                <ul class="list-group " id="taskList" style="border:none!important; position: relative; height:80%; overflow-y:scroll;" autocomplete="off">
                       
-                    <li class="list-group-item " id="ListItem" style="border:none; border-bottom:1px solid rgba(0, 0, 0, 0.125)!important;">
+                    <!-- <li class="list-group-item " id="ListItem" style="border:none; border-bottom:1px solid rgba(0, 0, 0, 0.125)!important;">
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" id="task 0" name="taskSelect" class="custom-control-input" value="option 0" >
-                            <label class="custom-control-label" for="task 0">
+                            <input type="checkbox" id="shopping" name="taskSelect" class="custom-control-input" value="option0" toggle>
+                            <label class="custom-control-label" for="shopping">
                                 Shopping
                             </label>
+                            <span >
+                                <img id="singleDelete" src="./root/fontawesomeDesktop/svgs/solid/trash-alt.svg" style="color:red; width:18px; float:right; cursor: pointer;"/>
+                            </span>
+                            
                         </div>
-                    </li>
+                    </li> -->
                     
                 </ul>
                 <button type="button" class="btn btn-danger btn-sm" id="deleteBtn"
@@ -64,7 +68,7 @@
     <script defer src="./js/jquery-3.5.1.min.js"></script>
     <script defer src="./js/popper.min.js"></script>
     <script defer src="./js/bootstrap.min.js"></script>
-    <script defer type="module" src="./index.js"></script>
+    <script src="./main.js"></script>
 
 </body>
 
