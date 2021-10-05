@@ -11,7 +11,7 @@ const app = express();
 
 app.post('/api', async(req,res)=>{
     try {
-        console.log("Recieved");
+        console.log(" POST Recieved");
         await pool.connect();
         await pool.query("BEGIN");
         const task = req.body;
@@ -35,10 +35,10 @@ app.post('/api', async(req,res)=>{
 })
 app.get('/tasks', async(req, res) => {
     try {
-        console.log("recieved")
+        console.log(" GET recieved")
         await pool.connect();
         await pool.query("BEGIN");
-        const {rows} = await pool.query("SELECT task FROM mydata.tasks");
+        const {rows} = await pool.query("SELECT id,task FROM mydata.tasks");
         //const task = req.body
         res.json({
             status:"success",
@@ -51,14 +51,26 @@ app.get('/tasks', async(req, res) => {
 })
 app.delete('/tasks', async(req , res) => {
     try {
-        console.log('Recieved')
-
+        console.log('DELETE recieved');
+        const id = req.body;
+        await pool.connect();
+        await pool.query("BEGIN");
+        for (let value of Object.values(id)) {
+            for(i = 0; i < value.length; i++){
+                const taskid = value[i];
+                await pool.query(`DELETE FROM mydata.tasks WHERE id = ${taskid} RETURNING *;`);
+                console.log(taskid)
+            }
+            
+        } 
+        await pool.query("COMMIT");
         res.json({
             status:'Success',
-            
         })
-    } catch (error) {
-        console.log('error')
+       
+    } catch (err) {
+        await client.query("ROLLBACK;")
+        console.error('err')
     }
 })
  app.use(express.static('src'));
