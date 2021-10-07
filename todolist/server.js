@@ -11,7 +11,7 @@ const app = express();
 
 app.post('/api', async(req,res)=>{
     try {
-        console.log(" POST Recieved");
+        //console.log(" POST Recieved");
         await pool.connect();
         await pool.query("BEGIN");
         const task = req.body;
@@ -19,11 +19,11 @@ app.post('/api', async(req,res)=>{
         for (let value of Object.values(task)) {
             await pool.query("INSERT INTO mydata.tasks(task, created_on) VALUES ($1, current_timestamp);", [value])
             const {rows} = await pool.query("SELECT * FROM mydata.tasks;");
-            console.table(rows);
+            //console.table(rows);
 
         }
         await pool.query("COMMIT");
-        console.log("Task Has Been Added")
+        //console.log("Task Has Been Added")
         res.json({
             status:"success",
             task
@@ -35,7 +35,7 @@ app.post('/api', async(req,res)=>{
 })
 app.get('/tasks', async(req, res) => {
     try {
-        console.log(" GET recieved")
+        //console.log(" GET recieved")
         await pool.connect();
         await pool.query("BEGIN");
         const {rows} = await pool.query("SELECT id,task FROM mydata.tasks");
@@ -51,7 +51,7 @@ app.get('/tasks', async(req, res) => {
 })
 app.delete('/tasks', async(req , res) => {
     try {
-        console.log('DELETE recieved');
+        //console.log('DELETE recieved');
         const id = req.body;
         await pool.connect();
         await pool.query("BEGIN");
@@ -59,7 +59,7 @@ app.delete('/tasks', async(req , res) => {
             for(i = 0; i < value.length; i++){
                 const taskid = value[i];
                 await pool.query(`DELETE FROM mydata.tasks WHERE id = ${taskid} RETURNING *;`);
-                console.log(taskid)
+                //console.log(taskid)
             }
             
         } 

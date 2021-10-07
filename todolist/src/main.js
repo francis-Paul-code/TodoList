@@ -65,17 +65,7 @@ if(input?.value){
 }
 
     if(input?.value){
-            taskList.innerHTML = `
-            <li class="list-group-item " id="ListItem" style="border:none; border-bottom:1px solid rgba(0, 0, 0, 0.125)!important;">
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" id="${input?.value}" name="taskSelect" class="custom-control-input" value="option0" toggle>
-                <label class="custom-control-label" for="${input?.value}">${input?.value}</label>
-                <span >
-                <img id="singleDelete" src="./root/fontawesomeDesktop/svgs/solid/trash-alt.svg" style="color:red; width:13px; float:right; cursor: pointer;"/>
-                </span>
-            </div>
-            </li>
-            ` 
+
         saved()
         input.value=null;
     }

@@ -32,3 +32,12 @@ console.log(json);
 
 const btn = deleteBtn;
 btn.addEventListener('click', getSelectedCheckboxValues)
+
+
+
+
+
+
+function deleteSingleTask(){
+    
+}
